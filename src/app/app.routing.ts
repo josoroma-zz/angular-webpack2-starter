@@ -1,4 +1,8 @@
 /* tslint:disable: max-line-length */
+
+/**
+ * Routing
+ */
 import { Routes } from '@angular/router';
 
 import { DashboardComponent } from './features/dashboard.component';

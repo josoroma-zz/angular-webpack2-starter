@@ -1,3 +1,6 @@
+/**
+ * Browser Transfer State
+ */
 import { NgModule } from '@angular/core';
 import { TransferState } from './transfer-state';
 

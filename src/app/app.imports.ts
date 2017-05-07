@@ -1,3 +1,6 @@
+/**
+ * Imports
+ */
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { MaterialModule } from '@angular/material';

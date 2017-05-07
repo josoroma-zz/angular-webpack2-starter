@@ -1,3 +1,6 @@
+/**
+ * Server
+ */
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, APP_BOOTSTRAP_LISTENER, ApplicationRef } from '@angular/core';
 import { ServerModule } from '@angular/platform-server';

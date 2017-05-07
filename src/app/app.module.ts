@@ -1,4 +1,8 @@
 /**
+ * App
+ */
+
+/**
  * This module is the entry for your App when NOT using universal.
  *
  * Make sure to use the 3 constant APP_ imports so you don't have to keep

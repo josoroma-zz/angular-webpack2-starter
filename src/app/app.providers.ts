@@ -1,3 +1,6 @@
+/**
+ * Providers
+ */
 import { UserActions } from './user/user.actions';
 import { UserService } from './user/user.service';
 

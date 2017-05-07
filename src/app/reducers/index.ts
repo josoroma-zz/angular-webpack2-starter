@@ -15,6 +15,9 @@ export interface AppState {
   user: fromUser.UserState;
 }
 
+/**
+ * Understanding App Architecture
+ */
 export const syncReducers = {
   router: routerReducer,
   user: fromUser.userReducer

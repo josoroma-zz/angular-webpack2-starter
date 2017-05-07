@@ -1,4 +1,8 @@
 /* tslint:disable no-console */
+
+/**
+ * Server
+ */
 const compression = require('compression');
 import 'zone.js/dist/zone-node';
 import './polyfills.server';
