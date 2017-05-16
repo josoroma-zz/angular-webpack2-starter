@@ -10,6 +10,16 @@ export const views: Object[] = [
     link: ['lazy']
   },
   {
+    name: 'Sync',
+    icon: 'done',
+    link: ['sync']
+  },
+  {
+    name: 'Parent',
+    icon: 'done',
+    link: ['parent']
+  },
+  {
     name: 'Bad Link',
     icon: 'error',
     link: ['wronglink']

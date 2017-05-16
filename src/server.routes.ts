@@ -8,5 +8,6 @@ export const routes: string[] = [
   '',
   'lazy',
   'sync',
+  'parent',
   'wronglink'
 ];
