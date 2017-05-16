@@ -6,26 +6,26 @@ import { Action } from '@ngrx/store';
 
 @Injectable()
 
-export class ParentActions {
+export class Actions {
 
-  static DECREMENT = '[Parent] Decrement';
+  static DECREMENT = '[] Decrement';
   decrement(): Action {
     return {
-      type: ParentActions.DECREMENT
+      type: Actions.DECREMENT
     };
   }
 
-  static INCREMENT = '[Parent] Increment';
+  static INCREMENT = '[] Increment';
   increment(): Action {
     return {
-      type: ParentActions.INCREMENT
+      type: Actions.INCREMENT
     };
   }
 
-  static RESET = '[Parent] Reset';
+  static RESET = '[] Reset';
   reset(): Action {
     return {
-      type: ParentActions.RESET
+      type: Actions.RESET
     };
   }
 }

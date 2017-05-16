@@ -1,6 +1,6 @@
 /* tslint:disable: variable-name */
 import { Routes } from '@angular/router';
-import { ParentComponent } from './parent.component';
+import { ParentComponent } from './component';
 
 export const routes: Routes = [
   {

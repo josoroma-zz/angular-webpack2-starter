@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { ParentActions } from './parent.actions';
-import { routes } from './parent.routing';
+import { Actions } from './actions';
+import { routes } from './routing';
 
-import { ParentComponent } from './parent.component';
+import { ParentComponent } from './component';
 
 
 @NgModule({
@@ -17,7 +17,7 @@ import { ParentComponent } from './parent.component';
         ParentComponent
     ],
     providers: [
-        ParentActions
+        Actions
     ]
 })
 
