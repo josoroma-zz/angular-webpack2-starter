@@ -1,33 +1,38 @@
-import { Store, ActionReducer, Action } from '@ngrx/store';
+import { compose } from '@ngrx/core/compose';
+
+import { Store, Action } from '@ngrx/store';
 
 import { AppState, createNewRootReducer } from './../../reducers/index';
 
-import { Actions } from './actions';
+import { ParentActions } from './actions';
 
-export interface State {
+import { ChildActions } from './child/actions';
+import{ ChildState, childReducer } from './child/reducer';
+
+export interface ParentState {
   counter: number;
 }
 
-const initialState: State = {
+const initialState: ParentState = {
   counter: 0
 };
 
-export function reducer(state: State = initialState, action: Action) {
+export function parentReducer(state: ParentState = initialState, action: Action) {
   switch (action.type) {
 
-    case Actions.DECREMENT:
+    case ParentActions.DECREMENT:
       return {
         ...state,
         counter: state.counter - 1
       };
 
-    case Actions.INCREMENT:
+    case ParentActions.INCREMENT:
       return {
         ...state,
         counter: state.counter + 1
       };
 
-    case Actions.RESET:
+    case ParentActions.RESET:
       return {
         ...state,
         counter: 0
@@ -38,13 +43,20 @@ export function reducer(state: State = initialState, action: Action) {
   }
 }
 
-export interface ParentState extends AppState {
-  reducer: State;
+export interface AppStateWithParent extends AppState {
+  parent: ParentState;
+  child: ChildState;
 }
 
-export class ParentStore extends Store<ParentState> { }
+export class StoreWithParent extends Store<AppStateWithParent> { }
 
-export function storeFactory(appStore: Store<AppState>) {
-  appStore.replaceReducer(createNewRootReducer({ reducer: reducer }));
+export function parentStoreFactory(appStore: Store<AppState>) {
+  appStore.replaceReducer(
+    createNewRootReducer({
+      parent: parentReducer,
+      child: childReducer
+    })
+  );
+
   return appStore;
 }

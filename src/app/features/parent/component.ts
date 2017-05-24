@@ -3,15 +3,15 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
-import { Actions } from './actions';
-import { ParentStore, storeFactory } from './reducer';
+import { ParentActions } from './actions';
+import { StoreWithParent, parentStoreFactory } from './reducer';
 
 @Component({
-  selector: 'parent',
+  selector: 'parent-component',
   templateUrl: './component.html',
   providers: [{
-    provide: ParentStore,
-    useFactory: storeFactory,
+    provide: StoreWithParent,
+    useFactory: parentStoreFactory,
     deps: [Store]
   }]
 })
@@ -20,10 +20,15 @@ export class ParentComponent {
   counter: Observable<number>;
 
   constructor(
-    private actions: Actions,
-    private store: ParentStore
+    private actions: ParentActions,
+    private store: StoreWithParent
   ) {
-    this.counter = store.select(s => s.reducer.counter);
+    console.log('ParentComponent - store ===>', store);
+
+    this.counter = store.select(state => {
+      console.log('ParentComponent this.store.select - state ===>', state);
+      return state.parent.counter
+    });
   }
 
   decrement() {
