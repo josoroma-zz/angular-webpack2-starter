@@ -20,26 +20,23 @@ export class ParentComponent {
   counter: Observable<number>;
 
   constructor(
-    private actions: ParentActions,
+    private parentActions: ParentActions,
     private store: StoreWithParent
   ) {
-    console.log('ParentComponent - store ===>', store);
-
     this.counter = store.select(state => {
-      console.log('ParentComponent this.store.select - state ===>', state);
       return state.parent.counter
     });
   }
 
   decrement() {
-    this.store.dispatch(this.actions.decrement());
+    this.store.dispatch(this.parentActions.decrement());
   }
 
   increment() {
-    this.store.dispatch(this.actions.increment());
+    this.store.dispatch(this.parentActions.increment());
   }
 
   reset() {
-    this.store.dispatch(this.actions.reset());
+    this.store.dispatch(this.parentActions.reset());
   }
 }

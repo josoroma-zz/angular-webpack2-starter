@@ -6,6 +6,11 @@ import { Action } from '@ngrx/store';
 
 @Injectable()
 
+/**
+ * Definitions of the actions that will be dispatched to alter the state.
+ * We should modify the state within our store application by dispatching
+ * these actions.
+ */
 export class ParentActions {
 
   static DECREMENT = '[Parent] Decrement';

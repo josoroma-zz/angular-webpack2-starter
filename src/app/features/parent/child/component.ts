@@ -27,10 +27,7 @@ export class ChildComponent {
     private childActions: ChildActions,
     private store: StoreWithParent
   ) {
-    console.log('ChildComponent - store ===>', store);
-
     this.counter = store.select(state => {
-      console.log('ChildComponent this.store.select - state ===>', state);
       return state.child.counter
     });
   }
@@ -45,5 +42,9 @@ export class ChildComponent {
 
   reset() {
     this.store.dispatch(this.childActions.reset());
+  }
+
+  incrementParent() {
+    this.store.dispatch(this.parentActions.increment());
   }
 }
