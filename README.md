@@ -1,3 +1,7 @@
+# Forked by josoroma/angular-webpack2-starter
+
+ * https://github.com/josoroma/angular-webpack2-starter/tree/production
+
 # Complete starter seed project for Angular 2
 
 ## Material Branch with Universal (Server-side rendering) support
