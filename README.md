@@ -1,113 +1,124 @@
-# Complete starter seed project for Angular 2
+# Re-learning Angular
 
-## Material Branch with Universal (Server-side rendering) support
+![WIP](src/assets/dist_root/ngrx.gif)
 
-> Featuring Material Design 2, Webpack 2 (and Webpack DLL plugin for faster dev builds), HMR (Hot Module Replacement), @ngrx for state management and optional server-side rendering with Universal.
+## Original Repository
 
-###### You can use npm, but it's recommended to use yarn as it installs a lot faster and has other benefits https://yarnpkg.com/ . Make sure you are using yarn version 0.16.0 or newer (check with 'yarn --version')
+ * https://github.com/josoroma/angular-webpack2-starter/tree/master
 
-```bash
-git clone https://github.com/qdouble/angular-webpack2-starter.git
-cd angular-webpack2-starter
-yarn
-yarn start
+```
+git remote set-url origin git://github.com/qdouble/angular-webpack2-starter.git
+
+git remote set-url --push origin git@github.com:josoroma/angular-webpack2-starter.git
 ```
 
-### [Material Branch without Universal (Server-side rendering) support](https://github.com/qdouble/angular-webpack2-starter/tree/no-universal-support)
+```
+git remote -v
 
-### [Bootstrap Branch](https://github.com/qdouble/angular-webpack2-starter/tree/bootstrap)
+origin  git://github.com/qdouble/angular-webpack2-starter.git (fetch)
+origin  git@github.com:josoroma/angular-webpack2-starter.git (push)
+```
 
-### [Bootstrap and Universal Branch](https://github.com/qdouble/angular-webpack2-starter/tree/bootstrap-and-universal)
+ * https://github.com/qdouble/angular-webpack2-starter
 
-### [Minimal Branch](https://github.com/qdouble/angular-webpack2-starter/tree/minimal)
+## Angular Universal
 
-## Features
+ - https://universal.angular.io/overview
 
-* Angular 2
-  * Async loading
-  * Treeshaking
-  * AOT (Ahead of Time/ Offline) Compilation
-  * AOT safe SASS compilation
-* Webpack 2
-  * Webpack Dlls (Speeds up devServer builds)
-  * @ngTools AOT plugin
-* HMR (Hot Module Replacement)
-* TypeScript 2
-  * @types
-* Material Design 2
-* Universal (Server-side Rendering)
-* @ngrx
-  * store (RxJS powered state management for Angular2 apps, inspired by Redux)
-  * effects (Side effect model for @ngrx/store)
-  * router-store (Bindings to connect angular/router to ngrx/store)
-  * store-devtools (Developer Tools for @ngrx/store)
-  * store-log-monitor (Log Monitor for @ngrx/store-devtools and Angular 2)
-  * ngrx-store-logger (Advanced console logging for @ngrx/store applications, ported from redux-logger.)
-  * ngrx-store-freeze in dev mode (@ngrx/store meta reducer that prevents state from being mutated.)
-* Karma/Jasmine testing
-* Protractor for E2E testing
+At a high level, there are two major pieces to the Angular Universal:
 
-## Project Goals
+ * Rendering on the server which means generating all the HTML for a page at a given route.
 
-* The main goal is to provide an environment where you can have great dev tools and create a production application without worrying about adding a bunch of stuff yourself.
-* The goal of your design should be so that you can easily copy and paste your app folder and your constants file into to a new update of this project and have it still work. Use constants and have proper separation to make upgrades easy. If you have any suggestions on areas where this starter can be designed to make updates more easy, file an issue.
+ * Transitioning from the server view to the client view in the browser client.
 
-## Basic scripts
+## Server
 
-Use `yarn start` for dev server. Default dev port is `3000`.
+ * src/server.ts
 
-Use `yarn run start:hmr` to run dev server in HMR mode.
+ * src/app/server.app.module.ts
 
-Use `yarn run build` for production build.
+## Routes
 
-Use `yarn run server:prod` for production server and production watch. Default production port is `8088`.
+ * src/server.routes.ts
 
-Use `yarn run universal` to run production build in Universal. To run and build universal in AOT mode, use
-`yarn run universal:aot`. Default universal port is `8000`.
+ * src/app/app.routing.ts
 
-Default ports and option to use proxy backend for dev server can be changed in `constants.js` file.
+## APP
 
-To create AOT version, run `yarn run build:aot`. This will compile and build script.
-Then you can use `yarn run prodserver` to see to serve files.
+ * src/app/app.module.ts
 
-### Store Log Monitor / Store Logger
+## State / Reducers
 
-In development mode, the store log monitor appears on the right hand of your screen. This allows
-you to view your stored state and manipulate your state history. By default, the monitor is NOT imported
-when you are in production mode. State history is also not saved in production mode.
+ * src/app/reducers/index.ts
 
-There is also an option to use store-logger which outputs to the console instead of your application view.
-To set your development mode store logging preference, go to the constant.js file and edit the `STORE_DEV_TOOLS` constant.
-Available options are `monitor | logger | both | none`
+ * src/modules/transfer-state/browser-transfer-state.module.ts
 
-### HMR (Hot Module Replacement)
+## APP_*
 
-HMR mode allows you to update a particular module without reloading the entire application.
-The current state of your app is also stored in @ngrx/store allowing you to make updates to your
-code without losing your currently stored state.
+### APP_DECLARATIONS
 
-### AOT  Don'ts
+ * src/app/app.declarations.ts
 
-The following are some things that will make AOT compile fail.
+### APP_ENTRY_COMPONENTS
 
-- Don’t use require statements for your templates or styles, use styleUrls and templateUrls, the angular2-template-loader plugin will change it to require at build time.
-- Don’t use default exports.
-- Don’t use form.controls.controlName, use form.get(‘controlName’)
-- Don’t use control.errors?.someError, use control.hasError(‘someError’)
-- Don’t use functions in your providers, routes or declarations, export a function and then reference that function name
-- Inputs, Outputs, View or Content Child(ren), Hostbindings, and any field you use from the template or annotate for Angular should be public
+ * src/app/app.entry-components.ts
 
-### Testing
+### APP_IMPORTS
 
-For unit tests, use `yarn run test` for continuous testing in watch mode and use
-`yarn run test:once` for single test. To view code coverage after running test, open `coverage/html/index.html` in your browser.
+ * src/app/app.imports.ts
 
-For e2e tests, use `yarn run e2e`. To run unit test and e2e test at the same time, use `yarn run ci`.
+### APP_PROVIDERS
 
-### Wiki Links
+ * src/app/app.providers.ts
 
-[Recommended Steps for merging this starter into existing project](https://github.com/qdouble/angular-webpack2-starter/wiki/Recommended-Steps-for-Merging-Starter-into-Existing-Project)
+## RxJS powered state management inspired by Redux
 
-### License
+ * https://github.com/ngrx/store
 
-[MIT](https://github.com/qdouble/angular-webpack2-starter/blob/master/LICENSE)
+@ngrx/store is a controlled state container designed to help write performant, consistent applications on top of Angular. Core tenets:
+
+ * State is a single immutable data structure.
+
+ * Actions describe state changes.
+
+ * Pure functions called reducers take the previous state and the next action to compute the new state.
+
+ * State accessed with the Store, an observable of state and an observer of actions.
+
+These core principles enable building components that can use the OnPush change detection strategy giving you intelligent, performant change detection throughout your application.
+
+## Comprehensive Introduction to @ngrx/store
+
+ * https://gist.github.com/btroncone/a6e4347326749f938510
+
+### ngrx-store-freeze
+
+Freezing state in development is the recommended path to take if we want to guarantee there are no unnecessary state mutations.
+
+```
+import { storeFreeze } from 'ngrx-store-freeze';
+
+...
+
+const DEV_REDUCERS = [stateSetter, storeFreeze];
+
+...
+
+const developmentReducer = compose(...DEV_REDUCERS, resetOnLogout);
+```
+
+`ngrx-store-freeze` is used as a meta-reducer to freeze any object that enters the store. On another place, when an object needs to be changed, a shallow copy is being made. `Object.assign()` doesn't do deep copy. A member of another object reached from the original object is being modified. This secondary object is also frozen, by it is not duplicated.
+
+*Solution*
+
+Use a deep copy like `cloneDeep()` from `lodash`. Or sent a bag of properties to be changed with a proper action. Process the changes on the reducer.
+
+### Don't mutate data that's in the store
+
+Certainly a freeze during development to try to prevent writing code that does this is a good idea.
+
+By the way, the object `spread operator`, saves considerable `Objects.assign()` syntax tedium when implementing code in reducers and elsewhere to avoid in-place mutation!
+
+#### Enforcing immutability
+
+ * https://angular-2-training-book.rangle.io/handout/change-detection/enforcing_immutability.html
