@@ -35,6 +35,9 @@ import { AppComponent } from './app.component';
 
 import { AppState } from './reducers';
 
+import { ApolloModule } from 'apollo-angular';
+import provideApolloClient from './app.apollo.client';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +50,7 @@ import { AppState } from './reducers';
     HttpModule,
     APP_IMPORTS,
     RouterModule.forRoot(routes, { useHash: false, preloadingStrategy: PreloadAllModules }),
+    ApolloModule.forRoot(provideApolloClient)
   ],
   bootstrap: [AppComponent],
   exports: [AppComponent],
