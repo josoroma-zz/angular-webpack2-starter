@@ -6,6 +6,9 @@ import { routerReducer, RouterState } from '@ngrx/router-store';
 
 import * as fromUser from '../user/user.reducer';
 
+import { ApolloClient } from 'apollo-client';
+const client = new ApolloClient();
+
 const modules = {
   'user': fromUser
 };
@@ -13,6 +16,7 @@ const modules = {
 export interface AppState {
   router: RouterState;
   user: fromUser.UserState;
+  apollo: any;
 }
 
 /**
@@ -20,7 +24,8 @@ export interface AppState {
  */
 export const syncReducers = {
   router: routerReducer,
-  user: fromUser.userReducer
+  user: fromUser.userReducer,
+  apollo: client.reducer() as any
 };
 
 const deepCombineReducers = (allReducers: any) => {
