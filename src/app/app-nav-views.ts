@@ -15,6 +15,11 @@ export const views: Object[] = [
     link: ['parent']
   },
   {
+    name: 'Graph',
+    icon: 'done',
+    link: ['graph']
+  },
+  {
     name: 'Bad Link',
     icon: 'error',
     link: ['wronglink']

@@ -1,0 +1,21 @@
+<md-card>
+  <md-card-title>
+    Graph
+  </md-card-title>
+  <md-card-content>
+    <p>This Graph Module is being loaded lazily.</p>
+
+    <md-list *ngIf="isFetching; else isFetchingMsg">
+      <md-list-item *ngFor="let post of data.posts">
+        <h3 md-line>{{ post.title }}</h3>
+        <p md-line>
+          <span>Votes: {{ post.votes }}</span>
+        </p>
+      </md-list-item>
+    </md-list>
+
+    <ng-template #isFetchingMsg>
+      Fetching data...
+    </ng-template>
+  </md-card-content>
+</md-card>

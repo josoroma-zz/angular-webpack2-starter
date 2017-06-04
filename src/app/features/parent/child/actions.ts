@@ -5,7 +5,6 @@ import { Response } from '@angular/http';
 import { Action } from '@ngrx/store';
 
 @Injectable()
-
 export class ChildActions {
 
   static DECREMENT = '[Child] Decrement';

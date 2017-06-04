@@ -1,5 +1,5 @@
 const apolloConfig = {
-    url: 'https://api.scaphold.io/graphql/angular-apollo-starter-kit'
+    url: 'https://w07j7r1vz.lp.gql.zone/graphql'
 };
 
 export default apolloConfig;

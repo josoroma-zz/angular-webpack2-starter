@@ -1,2 +1,10 @@
 /* This file is for setting global styles  */
 @import 'variables';
+
+.button-row {
+  padding: 10px;
+}
+
+.button-row button {
+  margin-right: 10px;
+}

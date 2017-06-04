@@ -1,6 +1,6 @@
 # Re-learning Angular
 
-![WIP](src/assets/dist_root/ngrx.gif)
+![WIP](src/assets/dist_root/ngrx-graphql.gif)
 
 ## Original Repository
 
