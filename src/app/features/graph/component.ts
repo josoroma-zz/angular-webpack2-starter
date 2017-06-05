@@ -23,11 +23,11 @@ import { GraphState } from './model';
 export class GraphComponent implements OnDestroy, OnInit {
   destroyed$: Subject<any> = new Subject<any>();
 
-  data: GraphState;
-  data$: Observable<GraphState>;
+  data: any;
+  data$: Observable<any>;
 
-  isFetching: GraphState;
-  isFetching$: Observable<GraphState>;
+  isFetching: boolean;
+  isFetching$: Observable<boolean>;
 
   constructor(
     private graphActions: GraphActions,

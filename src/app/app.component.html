@@ -1,7 +1,8 @@
 <header>
   <md-toolbar color="primary">
-    <md-icon class="example-icon">verified_user</md-icon>
     <span>@angular</span>
+    &nbsp;
+    <md-icon class="example-icon">favorite</md-icon>
   </md-toolbar>
 </header>
 
@@ -9,6 +10,7 @@
   <button
     *ngFor="let view of views"
     [routerLink]="view.link"
+    color="primary"
     md-raised-button
   >
     {{ view.name }}

@@ -7,15 +7,16 @@
 
     <md-list *ngIf="isFetching; else isFetchingMsg">
       <md-list-item *ngFor="let post of data.posts">
-        <h3 md-line>{{ post.title }}</h3>
+        <h3 md-line>{{ post.title }} <{{ post.author.firstName }}></h3>
         <p md-line>
-          <span>Votes: {{ post.votes }}</span>
+          <md-icon class="example-icon" color="accent">thumb_up</md-icon>
+          <span>{{ post.votes }}</span>
         </p>
       </md-list-item>
     </md-list>
 
     <ng-template #isFetchingMsg>
-      Fetching data...
+      <md-spinner color="accent"></md-spinner>
     </ng-template>
   </md-card-content>
 </md-card>

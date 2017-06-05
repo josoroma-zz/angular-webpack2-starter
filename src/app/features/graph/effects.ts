@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { Store, Action } from '@ngrx/store';
 import { Actions, Effect } from '@ngrx/effects';
 
 import { GraphActions } from './actions';

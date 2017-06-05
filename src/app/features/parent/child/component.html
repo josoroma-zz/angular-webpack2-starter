@@ -1,17 +1,20 @@
 <md-card>
-  <md-card-title>
-    Child
-  </md-card-title>
-  <md-card-content>
-    <p>This a Child Component.</p>
+  <md-card-header>
+    <md-card-title>
+      Child
+    </md-card-title>
+  </md-card-header>
+  <md-card-content class="padding-medium">
+    <p>Child Module.</p>
 
-    <div>Current Count: {{ counter | async }}</div>
+    <div class="padding-medium">
+      <div>Current Count: {{ counter | async }}</div>
 
-    <button (click)="increment()">Increment</button>
-    <button (click)="decrement()">Decrement</button>
+      <button md-raised-button color="warn" (click)="reset()">Reset Counter</button>
+      <button md-raised-button color="primary" (click)="increment()">Increment</button>
+      <button md-raised-button color="accent" (click)="decrement()">Decrement</button>
 
-    <button (click)="reset()">Reset Counter</button>
-
-    <button (click)="incrementParent()">Increment Parent</button>
+      <button md-raised-button (click)="incrementParent()">Increment Parent</button>
+    </div>
   </md-card-content>
 </md-card>
