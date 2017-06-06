@@ -8,7 +8,7 @@ import { reducerReset } from './reducer.reset';
 
 export interface ChildState {
   counter: number;
-};
+}
 
 const initialState: ChildState = {
   counter: 0

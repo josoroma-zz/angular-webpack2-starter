@@ -43,7 +43,7 @@ export const graphReducer = (state: GraphState = initialState, action: Action) =
 
 export interface AppStateWithGraph extends AppState {
   graph: GraphState;
-};
+}
 
 export class StoreWithGraph extends Store<AppStateWithGraph> { }
 
@@ -55,4 +55,4 @@ export const graphStoreFactory = (appStore: Store<AppState>) => {
   );
 
   return appStore;
-}
+};

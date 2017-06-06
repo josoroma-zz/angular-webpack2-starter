@@ -3,4 +3,4 @@ export const reducerDecrement = (state) => {
     ...state,
     counter: state.counter - 1
   };
-}
+};

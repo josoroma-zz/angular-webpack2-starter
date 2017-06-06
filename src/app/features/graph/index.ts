@@ -12,7 +12,7 @@ import { GraphComponent } from './component';
 
 import { EffectsModule } from '@ngrx/effects';
 
-import { GraphEffects } from "./effects";
+import { GraphEffects } from './effects';
 
 import { GraphPostsService } from './graph.posts.service';
 

@@ -3,7 +3,7 @@ export const reducerGetPosts = (state, action) => {
     ...state,
     isFetching: false
   };
-}
+};
 
 export const reducerGetPostsSuccess = (state, action) => {
   return {
@@ -11,7 +11,7 @@ export const reducerGetPostsSuccess = (state, action) => {
     isFetching: true,
     data: action.payload
   };
-}
+};
 
 export const reducerGetPostsFail = (state, action) => {
   return {
@@ -19,4 +19,4 @@ export const reducerGetPostsFail = (state, action) => {
     isFetching: false,
     error: action.payload
   };
-}
+};

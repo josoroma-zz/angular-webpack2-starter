@@ -3,4 +3,4 @@ export const reducerIncrement = (state) => {
     ...state,
     counter: state.counter + 1
   };
-}
+};

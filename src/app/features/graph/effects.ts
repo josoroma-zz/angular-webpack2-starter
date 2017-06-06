@@ -9,12 +9,6 @@ import { GraphPostsService } from './graph.posts.service';
 
 @Injectable()
 export class GraphEffects {
-  constructor(
-    private graphPostsService: GraphPostsService,
-    private actions$: Actions,
-    private graphActions: GraphActions
-  ) { }
-
   @Effect() posts$ = this.actions$
     .ofType(GraphActions.GET_POSTS)
     .map(action => action.payload)
@@ -26,4 +20,10 @@ export class GraphEffects {
         this.graphActions.getPostsFail(err)
       ))
     );
+
+  constructor(
+    private graphPostsService: GraphPostsService,
+    private actions$: Actions,
+    private graphActions: GraphActions
+  ) { }
 }

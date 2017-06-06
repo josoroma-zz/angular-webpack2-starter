@@ -24,7 +24,7 @@ export class ParentComponent {
     private store: StoreWithParent
   ) {
     this.counter = store.select(state => {
-      return state.parent.counter
+      return state.parent.counter;
     });
   }
 

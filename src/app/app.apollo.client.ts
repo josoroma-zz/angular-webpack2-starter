@@ -2,7 +2,7 @@ import ApolloClient, { createNetworkInterface } from 'apollo-client';
 
 import apolloConfig from './app.apollo.client.config';
 
-const networkInterface = createNetworkInterface(apolloConfig.url);
+const networkInterface = createNetworkInterface(apolloConfig);
 
 networkInterface.use([
   {

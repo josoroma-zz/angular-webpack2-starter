@@ -3,4 +3,4 @@ export const reducerReset = (state) => {
     ...state,
     counter: 0
   };
-}
+};

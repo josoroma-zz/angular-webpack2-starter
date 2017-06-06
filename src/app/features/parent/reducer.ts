@@ -15,7 +15,7 @@ import { ChildState, childReducer } from './child/reducer';
 
 export interface ParentState {
   counter: number;
-};
+}
 
 const initialState: ParentState = {
   counter: 0
@@ -46,7 +46,7 @@ export const parentReducer = (state: ParentState = initialState, action: Action)
 export interface AppStateWithParent extends AppState {
   parent: ParentState;
   child: ChildState;
-};
+}
 
 export class StoreWithParent extends Store<AppStateWithParent> { }
 
@@ -59,4 +59,4 @@ export const parentStoreFactory = (appStore: Store<AppState>) => {
   );
 
   return appStore;
-}
+};
