@@ -17,7 +17,7 @@ networkInterface.use([
   }
 ]);
 
-const client = new ApolloClient({ networkInterface });
+const client = new ApolloClient({ networkInterface, ssrMode: true });
 
 function provideApolloClient(): ApolloClient {
   return client;
